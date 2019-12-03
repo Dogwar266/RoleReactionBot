@@ -3,7 +3,7 @@ const discord = require('discord.js');
 const client = new discord.Client({
     partials: ['MESSAGE']
 });
-const { prefix, token } = require('./config.json');
+const { prefix} = require('./config.json');
 client.login(token);
 const token = process.env.arcadia;
 client.on('ready', () => {
