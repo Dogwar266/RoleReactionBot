@@ -4,8 +4,8 @@ const client = new discord.Client({
     partials: ['MESSAGE']
 });
 const { prefix} = require('./config.json');
-client.login(token);
 const token = process.env.arcadia;
+client.login(token);
 client.on('ready', () => {
     console.log(client.user.tag + " has logged in.");
 });
