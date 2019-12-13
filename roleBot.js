@@ -13,12 +13,16 @@ client.on('ready', () => {
 let channel_id = "650567782890471436";
 let message_id = "651598494141775872";
 
-client.channels.get(channel_id).message.id(message_id).then(m => {
-    console.log("Cached reaction message.");
-}).catch(e => {
-    console.error("Error loading message.");
-    console.error(e);
-});
+
+
+client.on("ready", (reaction, user) => {
+
+    client.channels.get(channel_id).fetchMessage(message_id).then(m => {
+        console.log("Cached reaction message.");
+    }).catch(e => {
+        console.error("Error loading message.");
+        console.error(e);
+    });
 
 client.on('message', message =>{
    if (!message.content.startsWith(prefix) || message.author.bot) return;
