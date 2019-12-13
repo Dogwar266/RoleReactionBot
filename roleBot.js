@@ -33,6 +33,16 @@ client.on('message', message =>{
 
 client.on('messageReactionAdd', async (reaction, user) => {
 
+    let channel_id = "650567782890471436";
+    let message_id = "651598494141775872";
+
+    client.channels.get(channel_id).fetchMessage(message_id).then(m => {
+       console.log("Cached reaction message.");
+    }).catch(e => {
+        console.error("Error loading message.");
+        console.error(e);
+    });
+
     let applyRole = async () => {
         let emojiName = reaction.emoji.name;
         console.log(reaction.emoji.name.toString());
@@ -50,9 +60,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
     if(!reaction.message.partial)
     {
-        let msg = await reaction.message.fetch();
-        try {
 
+        try {
+            let msg = await reaction.message.fetch();
             console.log(msg.id);
             if(msg.id === '651226425671680000')
             {
@@ -66,11 +76,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
     else
     {
-        if (msg.id === '651598494141775872') {
             console.log("Not a partial.");
             console.log(true);
             applyRole();
-        }
 
     }
 });
