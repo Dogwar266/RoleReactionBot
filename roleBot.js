@@ -65,12 +65,9 @@ client.on("ready", (reaction, user) => {
         if (!reaction.message.partial) {
 
             try {
-                let msg = await reaction.message.fetch();
-                console.log(msg.id);
-                if (msg.id === '651226425671680000') {
                     console.log("Cached")
                     applyRole();
-                }
+
             } catch (err) {
                 console.log(err);
             }
@@ -98,12 +95,8 @@ client.on("ready", (reaction, user) => {
         }
         if (!reaction.message.partial) {
             try {
-                let msg = await reaction.message.fetch();
-                console.log(msg.id);
-                if (msg.id === '651226425671680000') {
                     console.log("Cached")
                     removeRole();
-                }
             } catch (err) {
                 console.log(err);
             }
