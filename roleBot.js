@@ -65,9 +65,13 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
     else
     {
-        console.log("Not a partial.");
+        let msg = await reaction.message.fetch();
+
+        if (msg.id === '651598494141775872') {
+            console.log("Not a partial.");
             console.log(true);
             applyRole();
+        }
 
     }
 });
@@ -104,10 +108,13 @@ client.on('messageReactionRemove', async (reaction, user) => {
     }
     else
     {
-        console.log("Not a partial.");
+
+        let msg = await reaction.message.fetch();
+        if (msg.id === '651598494141775872') {
+            console.log("Not a partial.");
             console.log(true);
             removeRole();
-
+        }
     }
 })
 
