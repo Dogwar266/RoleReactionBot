@@ -48,10 +48,11 @@ client.on('messageReactionAdd', async (reaction, user) => {
             console.log(err);
         }
     }
-    if(reaction.message.partial)
+    if(!reaction.message.partial)
     {
+        let msg = await reaction.message.fetch();
         try {
-            let msg = await reaction.message.fetch();
+
             console.log(msg.id);
             if(msg.id === '651226425671680000')
             {
@@ -65,8 +66,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
     else
     {
-        let msg = await reaction.message.fetch();
-
         if (msg.id === '651598494141775872') {
             console.log("Not a partial.");
             console.log(true);
@@ -91,7 +90,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
             console.log(err);
         }
     }
-    if(reaction.message.partial)
+    if(!reaction.message.partial)
     {
         try {
             let msg = await reaction.message.fetch();
@@ -108,13 +107,10 @@ client.on('messageReactionRemove', async (reaction, user) => {
     }
     else
     {
-
-        let msg = await reaction.message.fetch();
-        if (msg.id === '651598494141775872') {
-            console.log("Not a partial.");
+        console.log("Not a partial.");
             console.log(true);
             removeRole();
-        }
+
     }
 })
 
