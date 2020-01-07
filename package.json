@@ -4,7 +4,9 @@
   "description": "",
   "main": "roleBot.js",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "fast-csv": "^4.0.2",
+    "googleapis": "^39.2.0"
   },
   "devDependencies": {},
   "scripts": {

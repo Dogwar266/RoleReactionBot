@@ -3,6 +3,7 @@ const discord = require('discord.js');
 const client = new discord.Client({
     partials: ['MESSAGE']
 });
+const csv = require('fast-csv');
 const {prefix} = require('./config.json');
 const token = process.env.token;
 client.login(token);
