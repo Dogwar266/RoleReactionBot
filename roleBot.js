@@ -20,13 +20,15 @@ const csv = require('fast-csv');
  */
 const readline = require('readline');
 const {google} = require('googleapis');
-
+const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+const TOKEN_PATH = 'token.json';
 /*
     Discord Logins
  */
 const {prefix} = require('./config.json');
-const token = process.env.token;
-client.login(token);
+const Discordtoken = process.env.token;
+client.login(Discordtoken);
+
 client.on('ready', () => {
     console.log(client.user.tag + " has logged in.");
 });
@@ -34,12 +36,10 @@ client.on('ready', () => {
 let channel_id = "650567782890471436";
 let message_id = "651598494141775872";
 
-const SCOPES = ['https://www.googleapis.com/auth/spreadhseets.readonly'];
-const TOKEN_PATH = 'token.json';
+
 
 fs.readFile('credentials.json', (err, content) => {
     if (err) return console.log('Error loading client secret file: ', err);
-    authorize(JSON.parse(content), listMajors);
 });
 
 function authorize(credentials, callback){
@@ -63,6 +63,7 @@ function getNewToken(oAuth2Client, callback) {
         input: process.stdin,
         output: process.stdout,
     });
+    rl.question('Enter the code from that page: ', (code) => {
     rl.close();
     oAuth2Client.getToken(code, (err, token) => {
         if (err) return console.error('Error while trying to retrieve access token', err);
@@ -73,27 +74,26 @@ function getNewToken(oAuth2Client, callback) {
         });
         callback(oAuth2Client);
     });
+    });
 }
 
-function listMajors(auth) {
-    const sheets = google.sheets({version: 'v4', auth});
-    sheets.spreadsheets.value.get({
-        spreadsheetId: '17QRSyBhAvjp6GIXGcKki16jj8F6HhmC8Nt0YPyRqhPI',
-        range: 'Class Data ! A2:E',
-    }, (err, res) => {
-        if (err) return console.log('The API returned an error: ' + err);
-        const rows = res.data.values;
-        if (rows.length) {
-            console.log('Name, Major: ');
-            rows.map((row)=> {
-                console.log(`${row[0]}, ${row[4]}`);
-            });
+function createSheet(){
+    const resource = {
+        properties: {
+            title,
+        },
+    };
+    this.sheetsService.spreadsheets.create({
+        resource,
+        fields: '17QRSyBhAvjp6GIXGcKki16jj8F6HhmC8Nt0YPyRqhPI',
+    }, (err, spreadsheet) => {
+        if (err) {
+            console.log(err);
         } else {
-            console.log('No data found');
+            console.log(`Spreadsheet ID: ${spreadsheet.spreadsheetId}`);
         }
-
     });
-    }
+}
 
 
 client.on("ready", (reaction, user) => {
