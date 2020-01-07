@@ -8,6 +8,7 @@ const discord = require('discord.js');
 const client = new discord.Client({
     partials: ['MESSAGE']
 });
+const fs = require('fs');
 
 /*
     CSV Includes
