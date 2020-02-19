@@ -3,14 +3,16 @@
 /*
     Discord includes
  */
+
+
 const snekfetch = require('snekfetch');
-const discord = require('discord.js');
-const client = new discord.Client({
+const Discord = require('discord.js');
+const client = new Discord.Client({
     partials: ['MESSAGE']
 });
 const {prefix} = require('./config.json');
 const token = process.env.token;
-client.login(token);
+
 client.commands = new Discord.Collection();
 const fs = require('fs');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -21,7 +23,7 @@ for (const file of commandFiles) {
 }
 
 const cooldowns = new Discord.Collection();
-
+client.login(token);
 /*
     GW2 Includes
 
@@ -120,7 +122,7 @@ client.on("ready", (reaction, user) => {
         if (command === 'react') {
             console.log("react works");
 
-            const embed = new discord.RichEmbed()
+            const embed = new Discord.RichEmbed()
                 .setColor('#da36cc')
                 .setTitle('Welcome to Life!')
                 .setAuthor('Life')

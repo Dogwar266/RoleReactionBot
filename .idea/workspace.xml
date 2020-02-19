@@ -26,7 +26,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/LifeBOT" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UQf61fQ7M4maiTDGUoBX3xdVzE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -80,7 +80,7 @@
       <workItem from="1579951164346" duration="43000" />
       <workItem from="1580553484092" duration="28000" />
       <workItem from="1581046364003" duration="28000" />
-      <workItem from="1582070394711" duration="2543000" />
+      <workItem from="1582070394711" duration="3520000" />
     </task>
     <servers />
   </component>
