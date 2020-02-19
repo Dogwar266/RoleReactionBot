@@ -26,7 +26,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/LifeBOT" />
   </component>
   <component name="ProjectId" id="1UQf61fQ7M4maiTDGUoBX3xdVzE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -73,6 +73,14 @@
       <workItem from="1576212637284" duration="3887000" />
       <workItem from="1578310253094" duration="227000" />
       <workItem from="1578370781304" duration="7742000" />
+      <workItem from="1578496377578" duration="607000" />
+      <workItem from="1578497322388" duration="574000" />
+      <workItem from="1578793783867" duration="1805000" />
+      <workItem from="1579943949422" duration="271000" />
+      <workItem from="1579951164346" duration="43000" />
+      <workItem from="1580553484092" duration="28000" />
+      <workItem from="1581046364003" duration="28000" />
+      <workItem from="1582070394711" duration="2543000" />
     </task>
     <servers />
   </component>
@@ -96,5 +104,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1575377993741" />
+    <state x="662" y="311" key="git4idea.merge.GitPullDialog" timestamp="1582070566979">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582070566979" />
   </component>
 </project>

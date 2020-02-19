@@ -8,26 +8,45 @@ const discord = require('discord.js');
 const client = new discord.Client({
     partials: ['MESSAGE']
 });
+const {prefix} = require('./config.json');
+const token = process.env.token;
+client.login(token);
+client.commands = new Discord.Collection();
 const fs = require('fs');
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
+}
+
+const cooldowns = new Discord.Collection();
+
+/*
+    GW2 Includes
+
+ */
+
+// const gw2 = require('gw2-api');
+// const api = new gw2.gw2();
+
+// api.setStorage(new gw2.memStore());
+
+
 
 /*
     CSV Includes
  */
-const csv = require('fast-csv');
+// const csv = require('fast-csv');
 
 /*
     Google Includes
  */
-const readline = require('readline');
-const {google} = require('googleapis');
-const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
-const TOKEN_PATH = 'token.json';
+
 /*
     Discord Logins
  */
-const {prefix} = require('./config.json');
-const Discordtoken = process.env.token;
-client.login(Discordtoken);
+
 
 client.on('ready', () => {
     console.log(client.user.tag + " has logged in.");
@@ -35,66 +54,6 @@ client.on('ready', () => {
 
 let channel_id = "650567782890471436";
 let message_id = "651598494141775872";
-
-
-
-fs.readFile('credentials.json', (err, content) => {
-    if (err) return console.log('Error loading client secret file: ', err);
-});
-
-function authorize(credentials, callback){
-    const {client_secret, client_id, redirect_uris} = credentials.installed;
-    const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
-
-    fs.readFile(TOKEN_PATH, (err, token) => {
-        if (err) return getNewToken(oAuth2Client, callback);
-        oAuth2Client.setCredentials((JSON.parse(token)));
-        callback(oAuth2Client);
-    });
-}
-
-function getNewToken(oAuth2Client, callback) {
-    const authURL = oAuth2Client.generateAuthUrl({
-        access_type: 'offline',
-        scope: SCOPES,
-    });
-    console.log('Authorise this app by visiting this url: ', authURL);
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-    });
-    rl.question('Enter the code from that page: ', (code) => {
-    rl.close();
-    oAuth2Client.getToken(code, (err, token) => {
-        if (err) return console.error('Error while trying to retrieve access token', err);
-        oAuth2Client.setCredentials(token);
-        fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
-            if (err) return console.error(err);
-            console.log('Token stored to ', TOKEN_PATH);
-        });
-        callback(oAuth2Client);
-    });
-    });
-}
-
-function createSheet(){
-    const resource = {
-        properties: {
-            title,
-        },
-    };
-    this.sheetsService.spreadsheets.create({
-        resource,
-        fields: '17QRSyBhAvjp6GIXGcKki16jj8F6HhmC8Nt0YPyRqhPI',
-    }, (err, spreadsheet) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(`Spreadsheet ID: ${spreadsheet.spreadsheetId}`);
-        }
-    });
-}
-
 
 client.on("ready", (reaction, user) => {
 
@@ -109,9 +68,55 @@ client.on("ready", (reaction, user) => {
         if (!message.content.startsWith(prefix) || message.author.bot) return;
 
         const args = message.content.slice(prefix.length).split(/ +/);
-        const command = args.shift().toLowerCase();
+        const commandName = args.shift().toLowerCase();
 
 
+        const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+
+        if (!command) return;
+
+        if (command.guildOnly && message.channel.type !== 'text') {
+            return message.reply('I can\'t execute that command inside DMs!');
+        }
+
+        if (command.args && !args.length) {
+            let reply = `You didn't provide any arguments, ${message.author}!`;
+
+            if (command.usage) {
+                reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+            }
+
+            return message.channel.send(reply);
+        }
+
+        if (!cooldowns.has(command.name)) {
+            cooldowns.set(command.name, new Discord.Collection());
+        }
+
+        const now = Date.now();
+        const timestamps = cooldowns.get(commandName);
+        const cooldownAmount = (command.cooldown || 3) * 1000;
+
+        if (timestamps.has(message.author.id)) {
+            const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+            if (now < expirationTime) {
+                const timeLeft = (expirationTime - now) / 1000;
+                return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+            }
+        }
+
+        timestamps.set(message.author.id, now);
+        setTimeout(() => timestamps.delete(message.author.id), coooldownAmount);
+
+        try {
+            command.execute(message, args);
+        } catch (error) {
+            console.error(error);
+            message.reply('there was an error trying to execute that command!');
+        }
+
+        // Commands related to Reaction Roles
         if (command === 'react') {
             console.log("react works");
 
