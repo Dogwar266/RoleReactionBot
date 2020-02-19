@@ -42,6 +42,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="F:\WebStorm 2019.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\PERSONAL FILES\Discord Bots\RoleReactionBot" />
+    </key>
+  </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
@@ -80,7 +85,7 @@
       <workItem from="1579951164346" duration="43000" />
       <workItem from="1580553484092" duration="28000" />
       <workItem from="1581046364003" duration="28000" />
-      <workItem from="1582070394711" duration="4264000" />
+      <workItem from="1582070394711" duration="4480000" />
     </task>
     <servers />
   </component>
