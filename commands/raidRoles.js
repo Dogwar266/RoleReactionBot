@@ -1,4 +1,0 @@
-modules.exports = {
-    name: '',
-    description: ''
-}
