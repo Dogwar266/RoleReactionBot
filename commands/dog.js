@@ -13,7 +13,7 @@ module.exports = {
             snekfetch.get(api).then(r => {
                 let message = r.body;
                 let image = r.message;
-              console.log(image);
+              console.log(image.toString());
             });
 
         } catch (e) {
