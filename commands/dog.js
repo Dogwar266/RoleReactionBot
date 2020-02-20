@@ -1,4 +1,4 @@
-const api = "https://dog.ceo/api/breeds/image/random Fetch!";
+const api = "https://dog.ceo/api/breeds/image/random";
 const snekfetch = require("snekfetch");
 const Discord = require("discord.js");
 
