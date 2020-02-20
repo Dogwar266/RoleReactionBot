@@ -108,7 +108,7 @@ client.on("ready", (reaction, user) => {
         }
 
         timestamps.set(message.author.id, now);
-        setTimeout(() => timestamps.delete(message.author.id), coooldownAmount);
+        setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
         try {
             command.execute(message, args);
