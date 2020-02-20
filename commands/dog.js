@@ -12,7 +12,10 @@ module.exports = {
         try {
             snekfetch.get(api).then(r => {
                 let message = r.body;
-                console.log(message);
+                let image = r.message;
+                let embed = new Discord.RichEmbed()
+                    .setImage(image)
+                return message.channel.send({embed});
             });
 
         } catch (e) {
