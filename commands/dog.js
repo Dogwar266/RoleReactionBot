@@ -12,7 +12,7 @@ module.exports = {
                 console.log('random dog picture');
             })
         } catch (e) {
-            console.log('error!');
+            console.log(e.stack);
         }
     }
 }
