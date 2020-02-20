@@ -11,8 +11,13 @@ module.exports = {
     execute(message, args) {
         try {
             snekfetch.get(api).then(r => {
-                let message = r.body;
-              console.log(message);
+                let dogArray = JSON.parse(r.body);
+                for (let i = 0; i < dogArray.length; i++){
+                    if(dogArray[i].endsWith('.png' || '.jpg')){
+                        console.log(i);
+                    }
+                }
+              
             });
 
         } catch (e) {
