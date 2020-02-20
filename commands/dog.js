@@ -11,7 +11,7 @@ module.exports = {
     execute(message, args) {
         try {
             snekfetch.get(api).then(r => {
-                let message = r.message.toString();
+                let message = r.body;
               console.log(message);
             });
 
