@@ -9,7 +9,9 @@
     "googleapis": "^39.2.0",
     "gw2-api": "^2.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "discord.js-commando": "^0.10.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
