@@ -12,6 +12,8 @@ const client = new Discord.Client({
 });
 const {prefix} = require('./config.json');
 const token = process.env.token;
+const cheerio = require('cheerio');
+const request = require('request');
 client.commands = new Discord.Collection();
 const fs = require('fs');
 
