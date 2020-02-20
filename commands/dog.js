@@ -8,7 +8,7 @@ module.exports = {
 
     execute(message, args) {
         try {
-            get('https://random.dog').then(response => {
+            get('https://random.dog/woof').then(response => {
                 message.channel.send({files: [{attachment: response.body.file, name: `dog.${response.body.file.split('.')[2]}`}]});
                 console.log('random dog picture');
             })
