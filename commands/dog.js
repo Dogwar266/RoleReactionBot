@@ -1,3 +1,5 @@
+import * as Discord from "discord.js";
+
 const { get } = require("snekfetch");
 
 module.exports = {
@@ -8,8 +10,10 @@ module.exports = {
 
     execute(message, args) {
         try {
-            get('https://random.dog/woof').then(response => {
-                message.channel.send({files: [{attachment: response.body.file, name: `dog.${response.body.file.split('.')[2]}`}]});
+            get('https://random.dog/woof').then(res => {
+                const embed = new Discord.RichEmbed()
+                    .setImage(res.body.file)
+                    return message.channel.send({embed});
                 console.log('random dog picture');
             })
         } catch (e) {
