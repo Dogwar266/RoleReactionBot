@@ -1,3 +1,4 @@
+const { get } = require("snekfetch");
 
 module.exports = {
 
