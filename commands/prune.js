@@ -1,9 +1,14 @@
-module.exports = {
-    name:'prune',
-    description: 'Prune up to 99 messages.',
-    guildOnly: true,
-    clientPermissions: ['ADMINISTRATOR'],
-    userPermissions: ['MANAGE_MESSAGES'],
+const { Command } = require('discord.js-commando');
+
+module.exports = class PruneCommand extends Command{
+    constructor(client) {
+        super(client, {
+            name: 'prune',
+            description: 'Prune up to 99 messages.',
+            clientPermissions: ['ADMINISTRATOR'],
+            userPermission: ['MANAGE_MESSAGES'],
+        });
+    }
 
     execute(message, args) {
 
@@ -19,6 +24,6 @@ module.exports = {
                 console.error(err);
                 message.channel.send('there was an error trying to prune messages in this channel!');
             });
-    },
+    }
 
 };
