@@ -1,14 +1,14 @@
 
 
-module.exports.run = {
+module.exports = {
 
-    name: 'prune',
+        name: 'prune',
         description : 'Prune up to 99 messages.',
-    clientPermissions: ['ADMINISTRATOR'],
+        clientPermissions: ['ADMINISTRATOR'],
         userPermission: ['MANAGE_MESSAGES'],
 
 
-        execute(message, args)
+    execute(message, args)
     {
         if (message.member.hasPermission('ADMINISTRATOR')) {
             const amount = parseInt(args[0]) + 1;
