@@ -2,7 +2,7 @@
   "name": "rolereactionbot",
   "version": "1.0.0",
   "description": "",
-  "main": "./roleBot.js",
+  "main": "app/roleBot.js",
   "dependencies": {
     "discord.js": "^11.5.1",
     "fast-csv": "^4.0.2",

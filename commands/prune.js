@@ -1,17 +1,16 @@
-const { Command } = require('discord.js-commando');
 
-module.exports = class PruneCommand extends Command{
-    constructor(client) {
-        super(client, {
-            name: 'prune',
-            description: 'Prune up to 99 messages.',
-            clientPermissions: ['ADMINISTRATOR'],
-            userPermission: ['MANAGE_MESSAGES'],
-        });
-    }
 
-    execute(message, args) {
+module.exports.run = {
 
+    name: 'prune',
+        description : 'Prune up to 99 messages.',
+    clientPermissions: ['ADMINISTRATOR'],
+        userPermission: ['MANAGE_MESSAGES'],
+
+
+        execute(message, args)
+    {
+        if (message.member.hasPermission('ADMINISTRATOR')) {
             const amount = parseInt(args[0]) + 1;
 
             if (isNaN(amount)) {
@@ -24,6 +23,7 @@ module.exports = class PruneCommand extends Command{
                 console.error(err);
                 message.channel.send('there was an error trying to prune messages in this channel!');
             });
+        }
     }
 
 };

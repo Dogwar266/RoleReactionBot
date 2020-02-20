@@ -12,8 +12,6 @@ const client = new Discord.Client({
 });
 const {prefix} = require('./config.json');
 const token = process.env.token;
-const { CommandoClient } = require('discord.js-commando');
-const path = require('path');
 client.commands = new Discord.Collection();
 const fs = require('fs');
 
