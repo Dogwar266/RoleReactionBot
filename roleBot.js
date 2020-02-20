@@ -12,16 +12,15 @@ const client = new Discord.Client({
 });
 const {prefix} = require('./config.json');
 const token = process.env.token;
-
-const fs = require('fs');
 client.commands = new Discord.Collection();
+const fs = require('fs');
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
-
 const cooldowns = new Discord.Collection();
 client.login(token);
 /*
