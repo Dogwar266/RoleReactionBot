@@ -1,4 +1,6 @@
-const { get } = require('snekfetch');
+const api = "https://dog.ceo/api/breeds/image/random Fetch!";
+const snekfetch = require("snekfetch");
+const Discord = require("discord.js");
 
 module.exports = {
 
@@ -8,11 +10,13 @@ module.exports = {
 
     execute(message, args) {
         try {
-            get('https://dog.ceo/api/breeds/image/random').then(response => {
-                message.channel.send({files: [{attachment: response.body.file, name: `dog.${response.body.file.split('.')[2]}`}]});
-                console.log('random dog picture');
-            })
-        } catch (e) {
+            snekfetch.get(api).then(r => {
+                let embed = new Discord.RichEmbed()
+                    .setImage(r.body.file)
+                return message.channel.send({embed});
+            });
+
+            } catch (e) {
             console.log(e.stack);
         }
     }
