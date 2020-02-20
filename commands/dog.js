@@ -11,9 +11,8 @@ module.exports = {
     execute(message, args) {
         try {
             snekfetch.get(api).then(r => {
-                let embed = new Discord.RichEmbed()
-                    .setImage(r.body.file)
-                return message.channel.send({embed});
+                let message = r.body;
+                return message.channel.send(message);
             });
 
             } catch (e) {
