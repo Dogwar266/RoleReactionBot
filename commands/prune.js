@@ -1,10 +1,12 @@
 module.exports = {
-    name: 'prune',
+    name:'prune',
     description: 'Prune up to 99 messages.',
     guildOnly: true,
+    clientPermissions: ['ADMINISTRATOR'],
+    userPermissions: ['MANAGE_MESSAGES'],
 
     execute(message, args) {
-        if (message.member.roles.has('Officer' || 'Guild Master (Leaders)')) {
+
             const amount = parseInt(args[0]) + 1;
 
             if (isNaN(amount)) {
@@ -17,7 +19,6 @@ module.exports = {
                 console.error(err);
                 message.channel.send('there was an error trying to prune messages in this channel!');
             });
-        }
     },
 
 };
