@@ -15,7 +15,7 @@ module.exports = {
                 let image = r.message;
                 let embed = new Discord.RichEmbed()
                     .setImage(image)
-                return message.channel.send({embed});
+                message.channel.send({embed});
             });
 
         } catch (e) {
