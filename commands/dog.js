@@ -12,10 +12,10 @@ module.exports = {
         try {
             snekfetch.get(api).then(r => {
                 let message = r.body;
-                return message.channel.send(message);
+                console.log(message);
             });
 
-            } catch (e) {
+        } catch (e) {
             console.log(e.stack);
         }
     }
