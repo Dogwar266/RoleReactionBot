@@ -2,7 +2,7 @@
   "name": "rolereactionbot",
   "version": "1.0.0",
   "description": "",
-  "main": "app/roleBot.js",
+  "main": "./roleBot.js",
   "dependencies": {
     "discord.js": "^11.5.1",
     "fast-csv": "^4.0.2",
@@ -15,6 +15,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Edward Boreham",
   "license": "ISC"
 }

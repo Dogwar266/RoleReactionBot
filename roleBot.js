@@ -10,7 +10,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client({
     partials: ['MESSAGE']
 });
-const {prefix} = require('../config.json');
+const {prefix} = require('./config.json');
 const token = process.env.token;
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
