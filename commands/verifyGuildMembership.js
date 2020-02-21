@@ -11,8 +11,8 @@ module.exports = {
 
     execute(message, args){
         const ingameName = args[0];
-        let role = message.guild.roles.find(r => r.name === "Guild Members");
-        let member = message.guild.members.first();
+        let role = Discord.guild.roles.find(role => role.name === 'Guild Members');
+        let member = message.mentions.members.first();
 
         console.log(ingameName);
 
