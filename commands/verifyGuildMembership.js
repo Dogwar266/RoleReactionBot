@@ -11,7 +11,7 @@ module.exports = {
 
     execute(message, args){
         const ingameName = args[0];
-        let role = Discord.guild.roles.find(role => role.name === 'Guild Members');
+        let role = message.guild.roles.find(role => role.name === 'Guild Members');
         let member = message.mentions.members.first();
 
         console.log(ingameName);
@@ -26,6 +26,9 @@ module.exports = {
                     if (ingameName === memberArray[i].name){
                         member.addRole(role);
                         console.log('success');
+                        return message.reply('You are in the guild!');
+                    } else {
+                        return message.reply('You are not in the guild!');
                     }
                 }
             });
