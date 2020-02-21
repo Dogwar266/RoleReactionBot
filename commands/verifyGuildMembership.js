@@ -15,7 +15,7 @@ module.exports = {
         let member = message.guild.members.first();
 
         console.log(ingameName);
-        console.log('success');
+
 
 
         try {
@@ -24,8 +24,8 @@ module.exports = {
                 for (let i = 0; i <memberArray.length; i++) {
                     // console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
-
                         member.addRole(roleId).catch(console.error);
+                        console.log('success');
                     }
                 }
             });
