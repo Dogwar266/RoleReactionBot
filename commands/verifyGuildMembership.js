@@ -22,7 +22,7 @@ module.exports = {
                 for (let i = 0; i <memberArray.length; i++) {
                     console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
-                         member.addRole(roleId).catch(console.error);
+                         member.addRole(role).catch(console.error);
                     }
                 }
             });
