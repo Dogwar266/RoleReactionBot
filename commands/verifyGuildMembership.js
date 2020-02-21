@@ -17,13 +17,14 @@ module.exports = {
         console.log(ingameName);
         console.log('success');
 
-        
+
         try {
             snekfetch.get(api).then(r => {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i <memberArray.length; i++) {
-                    console.log(memberArray[i].name);
+                    // console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
+
                         member.addRole(roleId).catch(console.error);
                     }
                 }
