@@ -19,7 +19,7 @@ module.exports = {
                 for (let i = 0; i <memberArray.length; i++) {
                     console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
-                        message.member.addRole('Guild Member');
+                        message.member.addRole('Guild Members');
                     }
                 }
             });
