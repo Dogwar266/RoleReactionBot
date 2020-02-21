@@ -10,7 +10,7 @@ module.exports = {
     guildOnly: true,
 
     execute(message, args){
-        const ingameName = parse(args[0]);
+        const ingameName = args[0];
 
         try {
             snekfetch.get(api).then(r => {
