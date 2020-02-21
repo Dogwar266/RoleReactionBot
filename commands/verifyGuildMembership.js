@@ -12,13 +12,14 @@ module.exports = {
     execute(message, args){
         const ingameName = args[0];
         console.log(ingameName);
+        console.log('success');
         try {
             snekfetch.get(api).then(r => {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i <memberArray.length; i++) {
                     console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
-                        message.member.permissions.add('Guild Members');
+                        message.member.addRole('Guild Member');
                     }
                 }
             });
