@@ -21,7 +21,7 @@ module.exports = {
         try {
             snekfetch.get(api).then(r => {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
-                for (let i = 0; i <memberArray.length; i++) {
+                for (let i = 0; i < memberArray.length; i++) {
                     console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
                         member.addRole(role);
