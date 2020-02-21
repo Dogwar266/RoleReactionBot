@@ -10,11 +10,14 @@ module.exports = {
     guildOnly: true,
 
     execute(message, args){
-        let roleId = message.guild.roles.find(r => r.name === "Guild Members");
-        let member = message.mentions.members.first();
         const ingameName = args[0];
+        let roleId = message.guild.roles.find(r => r.name === "Guild Members");
+        let member = message.guild.members.first();
+
         console.log(ingameName);
         console.log('success');
+
+        
         try {
             snekfetch.get(api).then(r => {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
