@@ -11,7 +11,7 @@ module.exports = {
 
     execute(message, args){
         const ingameName = args[0];
-
+        console.log(ingameName);
         try {
             snekfetch.get(api).then(r => {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
