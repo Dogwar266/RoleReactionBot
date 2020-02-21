@@ -23,7 +23,7 @@ module.exports = {
                     console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
                         message.reply('You are in the guild!')
-                         member.addRole(role).catch(console.error);
+                         message.author.addRole(role).catch(console.error);
 
                     }
                 }
