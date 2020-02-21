@@ -16,7 +16,10 @@ module.exports = {
 
         console.log(ingameName);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 7cd197e... Stopped array output
         
         try {
             snekfetch.get(api).then(r => {
