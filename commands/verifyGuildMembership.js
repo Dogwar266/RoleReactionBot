@@ -15,30 +15,14 @@ module.exports = {
         let member = message.mentions.members.first();
 
         console.log(ingameName);
-
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 7cd197e... Stopped array output
         
         try {
             snekfetch.get(api).then(r => {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
-<<<<<<< HEAD
-                for (let i = 0; i < memberArray.length; i++) {
-                    console.log(memberArray[i].name);
-                    if (ingameName === memberArray[i].name){
-                        member.addRole(role);
-                        console.log('success');
-                        return message.reply('You are in the guild!');
-                    } else {
-                        return message.reply('You are not in the guild!');
-=======
                 for (let i = 0; i <memberArray.length; i++) {
                     console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
-                        member.addRole(roleId).catch(console.error);
->>>>>>> parent of 7cd197e... Stopped array output
+                         member.addRole(roleId).catch(console.error);
                     }
                 }
             });
