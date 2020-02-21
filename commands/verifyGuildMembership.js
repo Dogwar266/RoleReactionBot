@@ -10,6 +10,8 @@ module.exports = {
     guildOnly: true,
 
     execute(message, args){
+        let roleId = message.guild.roles.find(r => r.name === "Guild Members");
+        let member = message.mentions.members.first();
         const ingameName = args[0];
         console.log(ingameName);
         console.log('success');
@@ -19,7 +21,7 @@ module.exports = {
                 for (let i = 0; i <memberArray.length; i++) {
                     console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
-                        message.member.addRole('Guild Members');
+                        member.addRole(roleId).catch(console.error);
                     }
                 }
             });
