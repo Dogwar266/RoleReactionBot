@@ -23,8 +23,9 @@ module.exports = {
                     console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
                         message.reply('You are in the guild!');
-                        message.channel.send(member);
                         member.addRole(role);
+                    } else {
+                        message.reply('You don\'t seem to be in the guild :frowning:');
                     }
                 }
             });
