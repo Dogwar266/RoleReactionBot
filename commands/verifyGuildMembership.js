@@ -25,7 +25,8 @@ module.exports = {
                         message.reply('You are in the guild!');
                         member.addRole(role);
                     } else if (ingameName != memberArray[i].name) {
-                        if (i === memberArray.length+1) {
+                        if (i === memberArray.length) {
+                            console.log('I got here!');
                             message.reply('You don\'t seem to be in the guild :frowning:');
                         }
                     }
