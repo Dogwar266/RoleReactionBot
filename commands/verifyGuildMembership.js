@@ -21,6 +21,7 @@ module.exports = {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i <memberArray.length; i++) {
                     console.log(i);
+                    console.log(memberArray.length);
                     if (ingameName === memberArray[i].name){
                         message.reply('You are in the guild!');
                         member.addRole(role);
