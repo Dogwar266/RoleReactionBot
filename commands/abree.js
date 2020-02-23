@@ -1,6 +1,6 @@
 module.exports = {
 
-    name: 'SafeFromAbreesShaft',
+    name: 'Abree',
     description : 'Lists all members safe from Abrees shaft',
 
     execute(message) {
