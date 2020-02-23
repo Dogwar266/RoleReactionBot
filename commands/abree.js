@@ -4,10 +4,7 @@ module.exports = {
     description : 'Lists all members safe from Abrees shaft',
 
     execute(message) {
-        try {
+        console.log('yeah boi');
             message.channel.send('Anyone with a vagina');
-        } catch (e){
-            console.log(e);
-        }
     },
 };

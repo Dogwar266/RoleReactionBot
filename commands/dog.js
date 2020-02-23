@@ -10,7 +10,7 @@ module.exports = {
 
     execute(message) {
         try {
-            console.log('Hello World!');
+
             snekfetch.get(api).then(r => {
                 let dogArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i < dogArray.length; i++){
