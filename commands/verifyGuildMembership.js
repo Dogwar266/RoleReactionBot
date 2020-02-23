@@ -20,11 +20,11 @@ module.exports = {
             snekfetch.get(api).then(r => {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i <memberArray.length; i++) {
-                    console.log(memberArray[i].name);
+                    console.log(i);
                     if (ingameName === memberArray[i].name){
                         message.reply('You are in the guild!');
                         member.addRole(role);
-                    } else if (ingameName != memberArray[i].name) {
+                    } else if (!ingameName === memberArray[i].name) {
                         if (i === memberArray.length) {
                             console.log('I got here!');
                             message.reply('You don\'t seem to be in the guild :frowning:');
