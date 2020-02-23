@@ -15,7 +15,7 @@ module.exports = {
                 let dogArray = JSON.parse(JSON.stringify(r.body));
                 console.log(r.body);
                 let embed = new Discord.RichEmbed()
-                    .setImage('https://images.dog.ceo/breeds/pug/n02110958_15129.jpg');
+                    .setImage(r.body.message);
                 message.channel.send(embed);
             });
         } catch (e) {
