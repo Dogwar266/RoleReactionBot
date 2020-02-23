@@ -13,9 +13,7 @@ module.exports = {
             message.channel.send('doggo pic here eventually');
             snekfetch.get(api).then(r => {
                 let dogArray = JSON.parse(JSON.stringify(r.body));
-                for (let i = 0; i < dogArray.length; i++){
-                   console.log(dogArray[i]);
-                }
+                console.log(r.body);
             });
         } catch (e) {
             console.log(e.stack);
