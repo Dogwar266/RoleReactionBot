@@ -9,7 +9,7 @@ module.exports = {
     guildOnly: true,
 
     execute(message, args){
-        const ingameName = args[0];
+        const ingameName = message.content.slice(prefix.length).split(/ +/);
         const discordName = args[1];
         let role = message.guild.roles.find(role => role.name === 'Guild Members');
         let member = message.mentions.members.first();
