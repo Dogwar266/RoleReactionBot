@@ -27,7 +27,7 @@ module.exports = {
                         break;
                     } else if (ingameName != memberArray[i].name && i === memberArray.length - 1) {
                             console.log('I got here!');
-                            message.reply('You don\'t seem to be in the guild :frowning:');
+                            message.reply('You don\'t seem to be in the guild :frowning:\n Perhaps try retyping! Command example:\n ;verify Dogwar.2384 (@)[Life]Dogwar\n Without the brackets around the @!');
 
                     }
                 }
