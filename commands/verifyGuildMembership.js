@@ -22,6 +22,7 @@ module.exports = {
                 for (let i = 0; i <memberArray.length; i++) {
                     console.log(memberArray[i].name);
                     if (ingameName === memberArray[i].name){
+                        message.channel.send('@' + role);
                         message.reply('You are in the guild!')
                          message.author.addRole(role).catch(console.error);
 
