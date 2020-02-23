@@ -12,7 +12,7 @@ module.exports = {
     execute(message, args){
         const ingameName = args[0];
         let role = message.guild.roles.find(role => role.name === 'Guild Members');
-        let member = message.author.username.first();
+        let member = message.author.id;
 
         console.log(ingameName);
         
