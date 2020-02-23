@@ -6,5 +6,5 @@ module.exports = {
     execute(message) {
         console.log('yeah boi');
             message.channel.send('Anyone with a vagina');
-    },
+    }
 };

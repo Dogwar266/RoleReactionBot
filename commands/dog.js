@@ -10,7 +10,7 @@ module.exports = {
 
     execute(message) {
         try {
-
+            message.channel.send('doggo pic here eventually');
             snekfetch.get(api).then(r => {
                 let dogArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i < dogArray.length; i++){
