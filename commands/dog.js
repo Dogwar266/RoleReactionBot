@@ -14,6 +14,9 @@ module.exports = {
             snekfetch.get(api).then(r => {
                 let dogArray = JSON.parse(JSON.stringify(r.body));
                 console.log(r.body);
+                let embed = new Discord.RichEmbed()
+                    .setImage('https://images.dog.ceo/breeds/pug/n02110958_15129.jpg');
+                message.channel.send(embed);
             });
         } catch (e) {
             console.log(e.stack);
