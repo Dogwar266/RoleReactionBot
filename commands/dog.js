@@ -10,10 +10,10 @@ module.exports = {
 
     execute(message) {
         try {
-            
+
             snekfetch.get(api).then(r => {
                 let dogArray = JSON.parse(JSON.stringify(r.body));
-                console.log(r.body);
+                
                 let embed = new Discord.RichEmbed()
                     .setImage(r.body.message);
                 message.channel.send(embed);
