@@ -11,11 +11,10 @@ module.exports = {
 
   execute(message, args){
 
-      let choice = 0;
+      let choice = args[0];
 
-      do {
-
-          message.channel.send('**WELCOME TO THE MARKET COMMAND**\n -------------------------\nPlease choose an option from the menu below!1. Buy Price of an Item\n 2. Sell Price of an Item\n 3. Stack Price of an Item\n 4. Custom Quantity Price of an Item\n 5. Exit');
+      while (true){
+          message.channel.send('**WELCOME TO THE MARKET COMMAND**\n ----------------------------------------\nPlease choose an option from the menu below!1. Buy Price of an Item\n 2. Sell Price of an Item\n 3. Stack Price of an Item\n 4. Custom Quantity Price of an Item\n 5. Exit');
 
           switch (choice){
               case 1:
@@ -32,7 +31,7 @@ module.exports = {
                   break;
           }
 
-      }while (true)
+      }
 
 
 
