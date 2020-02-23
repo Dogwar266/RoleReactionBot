@@ -13,7 +13,7 @@ module.exports = {
 
             snekfetch.get(api).then(r => {
                 let dogArray = JSON.parse(JSON.stringify(r.body));
-                
+
                 let embed = new Discord.RichEmbed()
                     .setImage(r.body.message);
                 message.channel.send(embed);
