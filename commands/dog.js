@@ -8,16 +8,13 @@ module.exports = {
     description : 'Sends a random image of a dog.',
     guildOnly: true,
 
-    execute(message, args) {
+    execute(message) {
         try {
             snekfetch.get(api).then(r => {
                 let dogArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i < dogArray.length; i++){
-                    if(dogArray[i].endsWith('.png' || '.jpg')){
-                        console.log(i);
-                    }
+                   console.log(dogArray[i]);
                 }
-
             });
 
         } catch (e) {

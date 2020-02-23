@@ -2,7 +2,6 @@ const api = "https://api.guildwars2.com/v2/guild/F5BF2DF0-A119-E911-81AA-D66D0E2
 const snekfetch = require("snekfetch");
 const Discord = require("discord.js");
 
-
 module.exports = {
 
     name: 'verify',
