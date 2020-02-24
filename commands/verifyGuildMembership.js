@@ -40,7 +40,7 @@ module.exports = {
                                 .setTitle('Successfully Verified!')
                                 .setDescription('You have been successfully verified, and should have the Guild Members Role!')
                                 .addField('Key Pair', `${ingameName}, ${message.member}`);
-                            message.send(embed);
+                            message.channel.send(embed);
 
                         }
                         break;
