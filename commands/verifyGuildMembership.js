@@ -50,8 +50,9 @@ module.exports = {
 
     execute(message){
 
-        let ingameName = message.content;
-        ingameName.split(' ').trim(' ');
+        let input = message.content;
+        let splitInput = input.split(' ');
+        let ingameName = splitInput.trim(',');
 
         // const discordName = args[1];
         let role = message.guild.roles.find(role => role.name === 'Guild Members');
