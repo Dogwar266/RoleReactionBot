@@ -30,7 +30,7 @@ module.exports = {
                 for (let i = 0; i <memberArray.length; i++) {
                     if (ingameName === memberArray[i].name){
                         nameMap.set(`${message.member}`, `${ingameName}`);
-                        message.reply(map.get(`${message.member}`));
+                        message.reply(nameMap.get(`${message.member}`));
                         message.reply('You are in the guild!');
                         message.member.addRole(role);
                         break;
