@@ -49,6 +49,7 @@ module.exports = {
 
 
     execute(message){
+        let ingameName;
         let input = message.content;
         let prefix = input[0];
         let command = input.substr(1).split(' ')[0];
