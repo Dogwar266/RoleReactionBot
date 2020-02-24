@@ -29,9 +29,12 @@ module.exports = {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i <memberArray.length; i++) {
                     if (ingameName === memberArray[i].name){
-                        message.reply(nameMap.get(`${message.member}`));
                         if (nameMap.has(`${message.member}`)){
-                            message.reply("Oops! It looks like someone already verified that name!");
+                            let embed = new Discord.RichEmbed()
+                                .setColor('#15aedb')
+                                .setTitle('Oops!')
+                                .setDescription('Looks like someone already verified that name!');
+                            message.channel.send(embed);
                         } else if(!nameMap.has(`${message.member}`)){
                             message.member.addRole(role);
                             nameMap.set(`${message.member}`, `${ingameName}`);
