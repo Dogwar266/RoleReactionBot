@@ -1,52 +1,14 @@
 const api = "https://api.guildwars2.com/v2/guild/F5BF2DF0-A119-E911-81AA-D66D0E22CAB6/members?access_token=70428CD7-F1EA-6642-A4AF-A6F28396D184E753B2A8-9618-40F1-82DB-8DFF2118F29D";
 const snekfetch = require("snekfetch");
 const Discord = require("discord.js");
-//const Sequelize = require('sequelize');
 
-/*const sequelize = new Sequelize('database', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: true,
-    storage: 'database.sqlite'
-});
-
-/*
- * Equivalent to: CREATE TABLE verification(
- * ingameName VARCHAR(255),
- * discordName VARCHAR(255),
- * usage INT
- * );
-
-
-const verification = sequelize.define('verifcation', {
-    ingameName: {
-        type: Sequelize.STRING,
-        unique: true,
-    },
-    discordName: {
-        type: Sequelize.STRING,
-        unique: true,
-    },
-    usage_count: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        allowNull: false,
-    },
-});
-
-verification.sync();
-*/
-
+let nameMap = new Map();
 
 module.exports = {
 
     name: 'verify',
     description: 'Verify your Discord account with your GW2 ingame Account',
     guildOnly: true,
-
-
-
-
 
     execute(message){
 
@@ -67,22 +29,10 @@ module.exports = {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i <memberArray.length; i++) {
                     if (ingameName === memberArray[i].name){
-
-                    /*    try {
-                            const verified = verification.create({
-                                ingameName: args[0],
-                                discordName: args[1],
-                            });
-                            return message.reply(`Verified ${verfied.discordName} added.`);
-                        } catch (e){
-                            if(e.ingameName === 'SequelizeUniqueConstraintError'){
-                                return message.reply('That username has already been verfied!');
-                            }
-                            return message.reply('Something went wrong!');
-                        } */
-
+                        Map.prototype.set(message.member, ingameName);
                         message.reply('You are in the guild!');
                         message.member.addRole(role);
+                        Map.prototype.keys();
                         break;
                     } else if (ingameName != memberArray[i].name && i === memberArray.length - 1) {
                             console.log('I got here!');
