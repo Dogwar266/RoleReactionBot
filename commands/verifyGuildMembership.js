@@ -39,7 +39,7 @@ module.exports = {
                                 .setColor('#15aedb')
                                 .setTitle('Successfully Verified!')
                                 .setDescription('You have been successfully verified, and should have the Guild Members Role!')
-                                .addField('Key Pair', `${ingameName}, ${message.member}`);
+                                .addField('Key Pair', `${message.member}, ${ingameName}`);
                             message.channel.send(embed);
 
                         }
