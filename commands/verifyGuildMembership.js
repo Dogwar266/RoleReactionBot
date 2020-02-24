@@ -29,7 +29,6 @@ module.exports = {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i <memberArray.length; i++) {
                     if (ingameName === memberArray[i].name){
-                        nameMap.set(`${ingameName}`, `${message.member}`);
                         message.reply(nameMap.get(`${ingameName}`));
                         if (nameMap.has(`${ingameName}`)){
                             message.reply("Oops! It looks like someone already verified that name!");
@@ -37,6 +36,7 @@ module.exports = {
                         } else if(!nameMap.has(`${ingameName}`)){
                             message.reply('You are in the guild!');
                             message.member.addRole(role);
+                            nameMap.set(`${ingameName}`, `${message.member}`);
                         }
                         break;
                     } else if (ingameName != memberArray[i].name && i === memberArray.length - 1) {
