@@ -33,7 +33,7 @@ module.exports = {
                                 .setTitle('Something went wrong!')
                                 .setDescription('It looks like you\'re either not in the guild or you\'ve mistyped the command!\n ' +
                                     'Try retyping the command, an example of how it\s supposed to look can be found in the image below!\n If the command still doesn\'t work' +
-                                    'make sure you are actually tagging yourself with @ and triple check your ingmae name to make sure it matches!')
+                                    'make sure you are actually tagging yourself with @ and triple check your ingame name to make sure it matches!')
                                 .addField('Example command', 'Below is an example of how the command should look in your client!')
                                 .setImage('https://i.imgur.com/KVpEww6.png');
                             message.channel.send({embed}).catch(console.error);
