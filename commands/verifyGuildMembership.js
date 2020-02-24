@@ -3,6 +3,41 @@ const snekfetch = require("snekfetch");
 const Discord = require("discord.js");
 const Sequelize = require('sequelize');
 
+const sequelize = new Sequelize('database', 'user', 'password', {
+    host: 'localhost',
+    dialect: 'sqlite',
+    logging: true,
+    storage: 'database.sqlite'
+});
+
+/*
+ * Equivalent to: CREATE TABLE verification(
+ * ingameName VARCHAR(255),
+ * discordName VARCHAR(255),
+ * usage INT
+ * );
+ */
+
+const verification = sequelize.define('verifcation', {
+    ingameName: {
+        type: Sequelize.STRING,
+        unique: true,
+    },
+    discordName: {
+        type: Sequelize.STRING,
+        unique: true,
+    },
+    usage_count: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+    },
+});
+
+verification.sync();
+
+
+
 module.exports = {
 
     name: 'verify',
@@ -72,36 +107,5 @@ module.exports = {
     }
 };
 
-const sequelize = new Sequelize('database', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: true,
-    storage: 'database.sqlite'
-});
 
-/*
- * Equivalent to: CREATE TABLE verification(
- * ingameName VARCHAR(255),
- * discordName VARCHAR(255),
- * usage INT
- * );
- */
-
-const verification = sequelize.define('verifcation', {
-    ingameName: {
-        type: Sequelize.STRING,
-        unique: true,
-    },
-    discordName: {
-        type: Sequelize.STRING,
-        unique: true,
-    },
-    usage_count: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        allowNull: false,
-    },
-});
-
-verification.sync();
 
