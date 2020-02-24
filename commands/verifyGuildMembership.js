@@ -82,15 +82,14 @@ module.exports = {
                         break;
                     } else if (ingameName != memberArray[i].name && i === memberArray.length - 1) {
                             console.log('I got here!');
-                            const attachment = new Discord.Attachment('./Images/Command Example.PNG', 'command.png');
                             let embed = new Discord.RichEmbed()
                                 .setColor('#15aedb')
                                 .setTitle('Something went wrong!')
                                 .setDescription('It looks like you\'re either not in the guild or you\'ve mistyped the command!\n ' +
                                     'Try retyping the command, an example of how it\s supposed to look can be found in the image below!\n If the command still doesn\'t work' +
-                                    'make sure you are actually tagging yourself with @ and triple check your ingmae name to make sure it matches!')
+                                    ' make sure you triple check your ingame name to make sure it matches!')
                                 .addField('Example command', 'Below is an example of how the command should look in your client!')
-                                .setImage('https://i.imgur.com/KVpEww6.png');
+                                .setImage('https://i.imgur.com/A2TKYWu.png');
                             message.channel.send({embed}).catch(console.error);
 
                     }
