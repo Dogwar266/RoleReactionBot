@@ -52,12 +52,12 @@ module.exports = {
 
         let input = message.content;
         let splitInput = input.split(' ');
-        //let ingameName = splitInput.trim(',');
+        const ingameName = splitInput.trim();
 
         // const discordName = args[1];
         let role = message.guild.roles.find(role => role.name === 'Guild Members');
         //let member = message.guild.members.find(message.author.id).username;
-        console.log(splitInput);
+        console.log(ingameName);
 
         
         try {
