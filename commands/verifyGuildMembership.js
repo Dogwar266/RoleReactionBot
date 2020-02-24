@@ -52,7 +52,7 @@ module.exports = {
         const ingameName = args[0];
         // const discordName = args[1];
         let role = message.guild.roles.find(role => role.name === 'Guild Members');
-        let member = message.mentions.members.first();
+        let member = message.member.displayName;
         console.log(ingameName);
 
 
