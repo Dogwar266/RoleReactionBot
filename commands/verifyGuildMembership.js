@@ -29,9 +29,10 @@ module.exports = {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i <memberArray.length; i++) {
                     if (ingameName === memberArray[i].name){
+                        nameMap.set(`${message.member}`, `${ingameName}`);
+                        message.reply(map.get(`${message.member}`));
                         message.reply('You are in the guild!');
                         message.member.addRole(role);
-                        nameMap.prototype.keys();
                         break;
                     } else if (ingameName != memberArray[i].name && i === memberArray.length - 1) {
                             console.log('I got here!');
