@@ -33,6 +33,7 @@ module.exports = {
                         message.reply(nameMap.get(`${ingameName}`));
                         if (nameMap.has(`${ingameName}`)){
                             message.reply("Oops! It looks like someone already verified that name!");
+                            nameMap.delete(`${ingameName}`);
                         } else {
                             message.reply('You are in the guild!');
                             message.member.addRole(role);
