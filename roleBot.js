@@ -53,6 +53,8 @@ client.login(token);
 
 client.on('ready', () => {
     console.log(client.user.tag + " has logged in.");
+
+    client.user.setActivity('Coded by Dogwar#2002');
 });
 
 let channel_id = "650567782890471436";
