@@ -27,6 +27,7 @@ module.exports = {
                         break;
                     } else if (ingameName != memberArray[i].name && i === memberArray.length - 1) {
                             console.log('I got here!');
+                            const attachment = new Discord.Attachment('./Images/Command Example.PNG', 'command.png');
                             let embed = new Discord.RichEmbed()
                                 .setColor('#15aedb')
                                 .setTitle('Something went wrong!')
@@ -34,8 +35,8 @@ module.exports = {
                                     'Try retyping the command, an example of how it\s supposed to look can be found in the image below!\n If the command still doesn\'t work' +
                                     'make sure you are actually tagging yourself with @ and triple check your ingmae name to make sure it matches!')
                                 .addField('Example command', false)
-                                .setImage('/Images/Command Example.PNG');
-                            message.channel.send(embed);
+                                .setImage('attachment://command.png');
+                            message.channel.send({embed}).catch(console.error);
 
                     }
                 }
