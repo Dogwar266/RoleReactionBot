@@ -33,9 +33,15 @@ module.exports = {
                         if (nameMap.has(`${ingameName}`)){
                             message.reply("Oops! It looks like someone already verified that name!");
                         } else if(!nameMap.has(`${ingameName}`)){
-                            message.reply('You are in the guild!');
                             message.member.addRole(role);
                             nameMap.set(`${ingameName}`, `${message.member}`);
+                            let embed = new Discord.RichEmbed()
+                                .setColor('#15aedb')
+                                .setTitle('Successfully Verified!')
+                                .setDescription('You have been successfully verified, and should have the Guild Members Role!')
+                                .addField('Key Pair', `${ingameName}, ${message.member}`);
+                            message.send(embed);
+
                         }
                         break;
                     } else if (ingameName != memberArray[i].name && i === memberArray.length - 1) {
