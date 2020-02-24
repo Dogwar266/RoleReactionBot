@@ -52,6 +52,7 @@ module.exports = {
 
         let input = message.content;
         let splitInput = input.split(' ');
+        splitInput.shift();
         let splitInputString = splitInput.toString();
         const ingameName = splitInputString.replace(/,/g, " ");
 
@@ -65,7 +66,6 @@ module.exports = {
             snekfetch.get(api).then(r => {
                 let memberArray = JSON.parse(JSON.stringify(r.body));
                 for (let i = 0; i <memberArray.length; i++) {
-                    console.log(memberArray.length);
                     if (ingameName === memberArray[i].name){
 
                     /*    try {
