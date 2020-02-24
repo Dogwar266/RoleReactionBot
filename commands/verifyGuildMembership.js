@@ -33,7 +33,8 @@ module.exports = {
                                 .setDescription('It looks like you\'re either not in the guild or you\'ve mistyped the command!\n ' +
                                     'Try retyping the command, an example of how it\s supposed to look can be found in the image below!\n If the command still doesn\'t work' +
                                     'make sure you are actually tagging yourself with @ and triple check your ingmae name to make sure it matches!')
-                                .setImage('Images/Command Example.PNG');
+                                .addField('Example command', false)
+                                .setImage('/Images/Command Example.PNG');
                             message.channel.send(embed);
 
                     }
