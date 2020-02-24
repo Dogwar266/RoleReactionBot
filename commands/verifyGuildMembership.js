@@ -35,7 +35,7 @@ module.exports = {
                                     'Try retyping the command, an example of how it\s supposed to look can be found in the image below!\n If the command still doesn\'t work' +
                                     'make sure you are actually tagging yourself with @ and triple check your ingmae name to make sure it matches!')
                                 .addField('Example command', 'Below is an example of how the command should look in your client!')
-                                .setImage('https://imgur.com/gallery/pfB5lhk');
+                                .setImage('https://i.imgur.com/KVpEww6.png');
                             message.channel.send({embed}).catch(console.error);
 
                     }
