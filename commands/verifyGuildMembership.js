@@ -49,16 +49,10 @@ module.exports = {
 
 
     execute(message){
-        let ingameName;
-        let input = message.content;
-        let prefix = input[0];
-        let command = input.substr(1).split(' ')[0];
-        let args = command.substr(command.indexOf(' ')+ 1);
-        if (command === "verify"){
-            args = args.split(',').map(elem => elem.trim());
 
-            let [ingameName] = args;
-        }
+        let ingameName = message.content;
+        ingameName.split(' ').trim(' ');
+
         // const discordName = args[1];
         let role = message.guild.roles.find(role => role.name === 'Guild Members');
         //let member = message.guild.members.find(message.author.id).username;
