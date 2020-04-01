@@ -2,10 +2,10 @@
 
 module.exports = {
 
-        name: 'prune',
-        description : 'Prune up to 99 messages.',
-        clientPermissions: ['ADMINISTRATOR'],
-        userPermission: ['MANAGE_MESSAGES'],
+    name: 'prune',
+    description : 'Prune up to 99 messages.',
+    clientPermissions: ['ADMINISTRATOR'],
+    userPermission: ['MANAGE_MESSAGES'],
 
 
     execute(message, args)
