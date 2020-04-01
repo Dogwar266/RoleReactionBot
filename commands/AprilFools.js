@@ -8,6 +8,7 @@ module.exports = {
 
     async execute(message)
     {
+        console.log("I got here");
         try {
             for (var i = 0; i < 15; i++) {
                 message.channel.send("@everyone");
