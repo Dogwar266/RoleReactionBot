@@ -12,7 +12,7 @@ module.exports = {
         {
             console.log("I got here");
             try {
-                for (var i = 0; i < 15; i++) {
+                for (let i = 0; i < 15; i++) {
                     message.channel.send("@everyone");
                     await sleep(5000);
                 }
