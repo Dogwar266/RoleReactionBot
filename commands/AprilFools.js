@@ -1,13 +1,20 @@
+
+
 module.exports = {
 
     name: 'AprilFools',
     description : 'One time only command',
 
 
-    execute(message, args)
+    async execute(message)
     {
-        for (var i = 0; i < 15; i++){
-            message.channel.send("@everyone");
+        try {
+            for (var i = 0; i < 15; i++) {
+                message.channel.send("@everyone");
+                await sleep(5000);
+            }
+        } catch (e){
+            console.log(e);
         }
     }
 
