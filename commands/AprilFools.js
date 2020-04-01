@@ -24,5 +24,6 @@ module.exports = {
                 console.log(e);
             }
         }
+        aprilFoolsJoke();
     }
 };
