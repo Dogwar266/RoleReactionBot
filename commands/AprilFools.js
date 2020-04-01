@@ -2,7 +2,7 @@
 
 module.exports = {
 
-    name: 'AprilFools',
+    name: 'aprilFools',
     description : 'One time only command',
 
 
