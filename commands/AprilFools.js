@@ -10,10 +10,10 @@ module.exports = {
     {
         async function aprilFoolsJoke()
         {
-            console.log("I got here");
+            console.log('I got here');
             try {
                 for (let i = 0; i < 15; i++) {
-                    message.channel.send("@everyone");
+                    message.channel.send('@everyone');
                     await sleep(5000);
                 }
             } catch (e) {
