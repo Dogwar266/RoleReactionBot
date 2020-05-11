@@ -204,5 +204,13 @@ client.on("ready", (reaction, user) => {
 
         }
     })
+
+    function botUpdatePosts(){
+        var CronJob = require('cron').CronJob;
+        var job = new CronJob('* * * * *', function(){
+           message.channel.send("Hi this is a crontab message and should repeat 1 minute from now!");
+        }, null, true, 'UTC');
+        job.start();
+    }
 });
 
