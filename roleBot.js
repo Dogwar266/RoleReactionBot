@@ -11,6 +11,7 @@ const client = new Discord.Client({
     partials: ['MESSAGE']
 });
 const {prefix} = require('./config.json');
+const CronJob = require('cron').CronJob;
 const token = process.env.token;
 const cheerio = require('cheerio');
 const request = require('request');
@@ -212,9 +213,8 @@ client.on("ready", (reaction, user) => {
 
 
 function botUpdatePosts(){
-    var CronJob = require('cron').CronJob;
     var job = new CronJob('* * * * *', function(){
-        client.channels.get('679972927500058634').send("Hi this is a crontab message and should repeat 1 minute from now!");
+        client.channels.get('639796316523855901').send("Hi this is a crontab message and should repeat 1 minute from now!");
     }, null, true, 'UTC');
     job.start();
 }
