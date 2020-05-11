@@ -211,7 +211,9 @@ client.on("ready", (reaction, user) => {
 
 });
 
-
+/*
+    Function that takes care of scheduled Bot posts
+ */
 function botUpdatePosts(){
 
     var LWS4Train = new CronJob('45 7 * * *', function(){
@@ -233,7 +235,7 @@ function botUpdatePosts(){
         // Notification Message
     }, null, true, 'UTC');
 
-    var WPTrain = new CronJob('* * * * 7', function(){
+    var WPTrain = new CronJob('* * * * SUN', function(){
         // Notification Message
     }, null, true, 'UTC');
     //WPTrain.start();
@@ -248,7 +250,7 @@ function botUpdatePosts(){
     }, null, true, 'UTC');
     //Raids.start();
 
-    var GuildMissions = new CronJob('45 10 * * 7', function(){
+    var GuildMissions = new CronJob('45 10 * * SUN', function(){
         // Notification Message
     }, null, true, 'UTC');
     GuildMissions.start();
