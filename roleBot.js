@@ -213,16 +213,43 @@ client.on("ready", (reaction, user) => {
 
 
 function botUpdatePosts(){
-    
+
     var LWS4Train = new CronJob('45 7 * * *', function(){
         //Notification Message
     }, null, true, 'UTC');
+    LWS4Train.start();
 
     var theTalk = new CronJob('45 10 * * 6', function(){
         // Notification message
     }, null, true, 'UTC');
     theTalk.start();
 
+    var LWS3Train = new CronJob('45 13 * * 3', function(){
+        // Notification Message
+    }, null, true, 'UTC');
+    //LWS3Train.start();
 
+    var HPTrain = new CronJob('0 1 * * 1', function(){
+        // Notification Message
+    }, null, true, 'UTC');
 
+    var WPTrain = new CronJob('* * * * 7', function(){
+        // Notification Message
+    }, null, true, 'UTC');
+    //WPTrain.start();
+
+    var Strikes = new CronJob('0 2 * * 2,4,6', function(){
+        // Notification Message
+    }, null, true, 'UTC');
+    Strikes.start();
+
+    var Raids = new CronJob('0 3 * * 5,6', function(){
+        // Notification Message
+    }, null, true, 'UTC');
+    //Raids.start();
+
+    var GuildMissions = new CronJob('45 10 * * 7', function(){
+        // Notification Message
+    }, null, true, 'UTC');
+    GuildMissions.start();
 }
