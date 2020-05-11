@@ -69,6 +69,9 @@ client.on("ready", (reaction, user) => {
         console.error(e);
     });
 
+    // Play bot crontab message
+    botUpdatePosts();
+
     client.on('message', message => {
         if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -205,12 +208,13 @@ client.on("ready", (reaction, user) => {
         }
     })
 
-    function botUpdatePosts(){
-        var CronJob = require('cron').CronJob;
-        var job = new CronJob('* * * * *', function(){
-           client.channels.get('679972927500058634').send("Hi this is a crontab message and should repeat 1 minute from now!");
-        }, null, true, 'UTC');
-        job.start();
-    }
 });
 
+
+function botUpdatePosts(){
+    var CronJob = require('cron').CronJob;
+    var job = new CronJob('* * * * *', function(){
+        client.channels.get('679972927500058634').send("Hi this is a crontab message and should repeat 1 minute from now!");
+    }, null, true, 'UTC');
+    job.start();
+}
