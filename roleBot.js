@@ -214,7 +214,19 @@ client.on("ready", (reaction, user) => {
 
 function botUpdatePosts(){
     var job = new CronJob('* * * * *', function(){
-        client.channels.get('639796316523855901').send("Hi this is a crontab message and should repeat 1 minute from now!");
+        client.channels.get('642022554789216297').send("A condom is a sheath-shaped barrier device used during sexual intercourse to reduce the probability of pregnancy or a sexually transmitted infection (STI).[1] There are both male and female condoms.[5] With proper use—and use at every act of intercourse—women whose partners use male condoms experience a 2% per-year pregnancy rate.[1] With typical use the rate of pregnancy is 18% per-year.[6] Their use greatly decreases the risk of gonorrhea, chlamydia, trichomoniasis, hepatitis B, and HIV/AIDS.[1] They also to a lesser extent protect against genital herpes, human papillomavirus (HPV), and syphilis.[1]");
     }, null, true, 'UTC');
     job.start();
+
+    var LWS4Train = new CronJob('45 7 * * *', function(){
+        //Notification Message
+    }, null, true, 'UTC');
+
+    var theTalk = new CronJob('45 10 * * 6', function(){
+        // Notification message
+    }, null, true, 'UTC');
+    theTalk.start();
+
+
+
 }
