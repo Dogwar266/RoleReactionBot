@@ -254,4 +254,8 @@ function botUpdatePosts(){
         // Notification Message
     }, null, true, 'UTC');
     GuildMissions.start();
+
+    var test = new CronJob('45 13 * * *', function(){
+        client.channels.get('679972927500058634').send("test");
+    }, null, true, 'UTC')
 }
