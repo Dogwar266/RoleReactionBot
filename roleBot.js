@@ -216,23 +216,23 @@ client.on("ready", (reaction, user) => {
  */
 function botUpdatePosts(){
 
-    var LWS4Train = new CronJob('45 7 * * *', function(){
-        //Notification Message
+    var LWS4Train = new CronJob('15 7 * * *', function(){
+        client.channels.get('658206567925284874').send("@MetaTrain \n The Living World Season 4 MetaTrain is forming at xx:45 in Istan. Squad will be up in LFG -> LWS4 -> Domain of Istan");
     }, null, true, 'UTC');
     LWS4Train.start();
 
-    var theTalk = new CronJob('45 10 * * 6', function(){
-        // Notification message
+    var theTalk = new CronJob('15 10 * * 6', function(){
+        client.channels.get('639804331473895435').send("@Guild Members \n Some guy named Josh that we pulled off the streets wants to talk about money or some shit. We don't know who he is, but he says he knows hot to get rich quick");
     }, null, true, 'UTC');
     theTalk.start();
 
-    var LWS3Train = new CronJob('45 13 * * 3', function(){
+    var LWS3Train = new CronJob('15 13 * * 3', function(){
         // Notification Message
     }, null, true, 'UTC');
     //LWS3Train.start();
 
-    var HPTrain = new CronJob('0 1 * * 1', function(){
-        // Notification Message
+    var HPTrain = new CronJob('45 12 * * 1', function(){
+        client.channels.get('658196822841491467').send("@MiscEvents \n The Heart of Thorns and Path of Fire Hero Point Train is up in the corresponding LFG");
     }, null, true, 'UTC');
 
     var WPTrain = new CronJob('* * * * SUN', function(){
@@ -240,22 +240,18 @@ function botUpdatePosts(){
     }, null, true, 'UTC');
     //WPTrain.start();
 
-    var Strikes = new CronJob('0 2 * * 2,4,6', function(){
-        // Notification Message
+    var Strikes = new CronJob('30 1 * * 2,4,6', function(){
+        client.channels.get('702477872358621316').send("@Strikes \n A Strikes squad will be forming soon!");
     }, null, true, 'UTC');
     Strikes.start();
 
-    var Raids = new CronJob('0 3 * * 5,6', function(){
+    var Raids = new CronJob('30 2 * * 5,6', function(){
         // Notification Message
     }, null, true, 'UTC');
     //Raids.start();
 
-    var GuildMissions = new CronJob('45 10 * * SUN', function(){
-        // Notification Message
+    var GuildMissions = new CronJob('15 10 * * SUN', function(){
+        client.channels.get('639804331473895435').send("@Guild Members \n Guild Missions are up!");
     }, null, true, 'UTC');
     GuildMissions.start();
-
-    var test = new CronJob('45 13 * * *', function(){
-        client.channels.get('679972927500058634').send("test");
-    }, null, true, 'UTC')
 }
