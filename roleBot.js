@@ -234,11 +234,12 @@ function botUpdatePosts(){
     var HPTrain = new CronJob('45 12 * * 1', function(){
         client.channels.get('658196822841491467').send("<@658195745102364675> \nThe Heart of Thorns and Path of Fire Hero Point Train is up in the corresponding LFG");
     }, null, true, 'UTC');
+    HPTrain.start();
 
     var WPTrain = new CronJob('45 9 * * SUN', function(){
         client.channels.get('658196822841491467').send("<@658195745102364675> \nA map completion train will be up soon starting in Lions Arch!");
     }, null, true, 'UTC');
-    WPTrain.start();
+    //WPTrain.start();
 
     var Strikes = new CronJob('30 1 * * 2,4,6', function(){
         client.channels.get('702477872358621316').send("<@650579568721264671> \nA Strikes squad will be forming soon!");
