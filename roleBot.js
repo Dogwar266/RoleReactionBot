@@ -242,7 +242,7 @@ function botUpdatePosts(){
     //WPTrain.start();
 
     var Strikes = new CronJob('30 1 * * 2,4,6', function(){
-        client.channels.get('702477872358621316').send("<@&650579568721264671> \nA Strikes squad will be forming soon!");
+        client.channels.get('702477872358621316').send("<@&702477542107512842> \nA Strikes squad will be forming soon!");
     }, null, true, 'UTC');
     Strikes.start();
 
