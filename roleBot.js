@@ -213,7 +213,7 @@ client.on("ready", (reaction, user) => {
 
 /*
     Function that takes care of scheduled Bot posts
- */
+
 function botUpdatePosts(){
 
     var LWS4Train = new CronJob('15 7 * * *', function(){
@@ -255,4 +255,5 @@ function botUpdatePosts(){
         client.channels.get('658196822841491467').send("<@&639798622678155276> \nGuild Missions are up!");
     }, null, true, 'UTC');
     GuildMissions.start();
-}
+
+ */
