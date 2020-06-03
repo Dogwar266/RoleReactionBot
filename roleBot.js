@@ -71,7 +71,7 @@ client.on("ready", (reaction, user) => {
     });
 
     // Play bot crontab message
-    botUpdatePosts();
+    //botUpdatePosts();
 
     client.on('message', message => {
         if (!message.content.startsWith(prefix) || message.author.bot) return;
