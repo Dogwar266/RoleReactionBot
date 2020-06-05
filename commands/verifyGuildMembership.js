@@ -1,4 +1,4 @@
-const api = "https://api.guildwars2.com/v2/guild/F5BF2DF0-A119-E911-81AA-D66D0E22CAB6/members?access_token=70428CD7-F1EA-6642-A4AF-A6F28396D184E753B2A8-9618-40F1-82DB-8DFF2118F29D";
+const api = "https://api.guildwars2.com/v2/guild/F5BF2DF0-A119-E911-81AA-D66D0E22CAB6/members?access_token=AE09F7A7-8345-E545-A92E-6E96297E22B38443F769-EE34-44F1-9F43-D7D77C874718";
 const snekfetch = require("snekfetch");
 const Discord = require("discord.js");
 
