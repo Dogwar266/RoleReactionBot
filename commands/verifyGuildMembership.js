@@ -19,7 +19,7 @@ module.exports = {
         const ingameName = splitInputString.replace(/,/g, " ");
 
         // const discordName = args[1];
-        let role = message.guild.roles.find(role => role.name === 'Guild Members');
+        let role = message.guild.roles.find(role => role.name === 'Guild Member');
         //let member = message.guild.members.find(message.author.id).username;
         console.log(ingameName);
 
